@@ -1,0 +1,33 @@
+name: test
+
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read 
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: code   
+      # Hier gebruik je USES om bestaande actions te gebruken, de bestaande action wordt uitgevoerd. je hebt niets zelfstandig gedefineerd om te runnen.
+        USES: actions/checkout
+
+      - name: node.js24 installeren
+        USES: actions/setup-node
+        with: 
+          node-version: 24
+
+      - name: dependencies installeren
+        run: npm install
+
+      - name: de test uitvoeren
+        run: npm test
+      
+      
+      
+      
+      
