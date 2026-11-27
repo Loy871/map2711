@@ -19,10 +19,10 @@ jobs:
     steps:
       - name: code   
       # Hier gebruik je USES om bestaande actions te gebruken, de bestaande action wordt uitgevoerd. je hebt niets zelfstandig gedefineerd om te runnen.
-        USES: actions/checkout@v7
+        uses: actions/checkout@v7
 
       - name: node.js24 installeren
-        USES: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with: 
           node-version: 24
 
