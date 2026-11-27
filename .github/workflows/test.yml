@@ -22,7 +22,7 @@ jobs:
         USES: actions/checkout@v7
 
       - name: node.js24 installeren
-        USES: actions/setup-node@5
+        USES: actions/setup-node@v7
         with: 
           node-version: 24
 
