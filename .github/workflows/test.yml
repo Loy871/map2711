@@ -1,0 +1,38 @@
+name: ci
+
+
+on:
+  push:
+    branches: main
+    # specifiek bij push in main
+
+  pull_request:
+
+permissions:
+  contents: read 
+  # GIT_TOKEN access beperkt, workflow krijgt standaard toegang tot git informatie.
+
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: code   
+      # Hier gebruik je USES om bestaande actions te gebruken, de bestaande action wordt uitgevoerd. je hebt niets zelfstandig gedefineerd om te runnen.
+        USES: actions/checkout@v7
+
+      - name: node.js24 installeren
+        USES: actions/setup-node@v7
+        with: 
+          node-version: 24
+
+        # run: npm install 
+        # DIT IS NIET NODIG, staat al in setup-node
+
+      - name: de test uitvoeren
+        run: npm test
+      
+      
+      
+      
+      
